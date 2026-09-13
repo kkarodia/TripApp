@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ── Brand colours ──────────────────────────────────────────── */
+  --color-navy-50:  #e8eef6;
+  --color-navy-100: #c5d3e8;
+  --color-navy-200: #9eb4d6;
+  --color-navy-400: #4f75a8;
+  --color-navy-600: #1b3a6b;
+  --color-navy-800: #0f2240;
+  --color-navy-900: #081529;
+
+  --color-brand:        var(--color-navy-600);
+  --color-brand-hover:  var(--color-navy-800);
+  --color-brand-subtle: var(--color-navy-50);
+
+  /* ── Semantic status colours ────────────────────────────────── */
+  --color-success:        #1d9e75;
+  --color-success-bg:     #e1f5ee;
+  --color-success-border: #5dcaa5;
+
+  --color-warning:        #ba7517;
+  --color-warning-bg:     #faeeda;
+  --color-warning-border: #ef9f27;
+
+  --color-danger:        #a32d2d;
+  --color-danger-bg:     #fcebeb;
+  --color-danger-border: #f09595;
+
+  --color-info:        #185fa5;
+  --color-info-bg:     #e6f1fb;
+  --color-info-border: #85b7eb;
+
+  /* ── Neutral surface scale ──────────────────────────────────── */
+  --color-surface-0: #ffffff;
+  --color-surface-1: #f7f7f7;
+  --color-surface-2: #f0f0f0;
+  --color-surface-3: #e8e8e8;
+
+  --color-border-subtle:   #ebebeb;
+  --color-border-default:  #e0e0e0;
+  --color-border-strong:   #cccccc;
+
+  --color-text-primary:   #111111;
+  --color-text-secondary: #555555;
+  --color-text-tertiary:  #999999;
+  --color-text-disabled:  #cccccc;
+
+  /* ── Typography ─────────────────────────────────────────────── */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* ── Spacing & radius ───────────────────────────────────────── */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* ── Sidebar dimensions ─────────────────────────────────────── */
+  --sidebar-width: 220px;
+  --topbar-height: 60px;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-font-smoothing: antialiased; }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+    background: var(--color-surface-1);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 9999px; }
+}
+
+/* ── Print styles ───────────────────────────────────────────────── */
+@media print {
+  /* Hide everything except the route sheet document */
+  body > *:not(#route-sheet-print),
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Reset page margins for clean A4 output */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  /* Ensure the document fills the page */
+  #route-sheet-print {
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 44px;
+    box-shadow: none;
+  }
+
+  /* Prevent table rows from breaking across pages */
+  tr {
+    page-break-inside: avoid;
+  }
+}

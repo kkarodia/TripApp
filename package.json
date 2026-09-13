@@ -1,0 +1,23 @@
+{
+  "name": "routedesk",
+  "private": true,
+  "packageManager": "npm@11.16.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check"
+  },
+  "devDependencies": {
+    "jose": "^4.15.9",
+    "postcss": "^8.5.15",
+    "preact": "^10.29.2",
+    "turbo": "^2.0.0",
+    "typescript": "^5.4.0"
+  }
+}
