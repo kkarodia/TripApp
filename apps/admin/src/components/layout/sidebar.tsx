@@ -3,7 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { signOut } from 'next-auth/react'
-import { IconLogout, IconPlus, IconRoute } from '@tabler/icons-react'
+import { IconLogout, IconRoute } from '@tabler/icons-react'
+import { ActionButton } from '@/components/ui'
 import { NAV_ITEMS } from './nav-items'
 import { cn } from '@/lib/utils'
 
@@ -44,25 +45,7 @@ export function Sidebar() {
 
       {/* ── Primary action ─────────────────────────────────────── */}
       <div className="px-3 pb-4">
-        <Link
-          href="/trips/new"
-          className={cn(
-            'group flex items-center justify-center gap-2 rounded-[--radius-md] px-3 py-2.5',
-            'bg-[--color-sky-300] text-[13px] font-semibold text-[--color-navy-900]',
-            'transition-[background-color,box-shadow] duration-200 ease-out',
-            'hover:bg-[--color-sky-200] hover:shadow-[0_0_20px_rgba(126,169,220,0.35)]',
-            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--color-sky-300]',
-            'focus-visible:ring-offset-2 focus-visible:ring-offset-[--color-navy-800]'
-          )}
-        >
-          <IconPlus
-            size={15}
-            stroke={2.5}
-            className="transition-transform duration-200 ease-out group-hover:rotate-90"
-            aria-hidden
-          />
-          New trip
-        </Link>
+        <ActionButton label="New trip" href="/trips/new" onNavy className="w-full" />
       </div>
 
       {/* ── Navigation ─────────────────────────────────────────── */}

@@ -1,5 +1,9 @@
-import Link from 'next/link'
-import { IconPlus } from '@tabler/icons-react'
+'use client'
+
+import { usePathname } from 'next/navigation'
+import { ActionButton } from '@/components/ui'
+import { PageHeading, AccentRule } from './page-heading'
+import { NAV_ITEMS } from './nav-items'
 
 interface TopbarProps {
   title: string
@@ -8,28 +12,22 @@ interface TopbarProps {
 }
 
 export function Topbar({ title, subtitle, action }: TopbarProps) {
+  const pathname = usePathname()
+
+  // Eyebrow doubles as a breadcrumb: on /trips/new it reads "Trips / New trip".
+  const section = NAV_ITEMS.find(
+    item => pathname === item.href || pathname.startsWith(`${item.href}/`)
+  )?.label
+
   return (
-    <header className="flex items-start justify-between gap-4 px-6 py-4 surface-pattern-panel border-b border-[--color-accent-border] flex-shrink-0">
-      <div className="min-w-0">
-        <h1 className="text-[18px] font-semibold text-[--color-text-primary] truncate">
-          {title}
-        </h1>
-        {subtitle && (
-          <p className="text-[12px] text-[--color-text-tertiary] mt-0.5 truncate">
-            {subtitle}
-          </p>
-        )}
-      </div>
+    <header className="relative flex items-center justify-between gap-5 px-6 py-5 surface-pattern-panel flex-shrink-0">
+      <PageHeading eyebrow={section} title={title} subtitle={subtitle} />
 
       {action && (
-        <Link
-          href={action.href}
-          className="inline-flex items-center gap-1.5 px-3 py-2 rounded-[--radius-md] bg-[--color-brand] text-white text-[12px] font-semibold hover:bg-[--color-brand-hover] transition-colors flex-shrink-0"
-        >
-          <IconPlus size={14} stroke={2.5} aria-hidden />
-          {action.label}
-        </Link>
+        <ActionButton label={action.label} href={action.href} className="flex-shrink-0" />
       )}
+
+      <AccentRule />
     </header>
   )
 }

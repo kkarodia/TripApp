@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { IconArrowLeft, IconFileText, IconPrinter } from '@tabler/icons-react'
 import { TripStatusPill } from '@/components/ui'
+import { PageHeading, AccentRule } from '@/components/layout'
 import type { Trip, OptimiseFor } from '@routedesk/types'
 
 interface TripMetaBarProps {
@@ -17,31 +18,36 @@ const OPTIMISE_LABEL: Record<OptimiseFor, string> = {
 
 export function TripMetaBar({ trip }: TripMetaBarProps) {
   return (
-    <div className="surface-pattern-panel border-b border-[--color-accent-border] px-6 py-4">
+    <div className="relative surface-pattern-panel px-6 py-5">
 
       {/* ── Back + title row ──────────────────────────────────── */}
       <div className="flex items-start justify-between gap-4">
-        <div className="flex items-start gap-3">
+        <div className="flex items-start gap-3 min-w-0">
           <Link
             href="/trips"
-            className="mt-0.5 p-1.5 rounded-[--radius-sm] text-[--color-text-tertiary] hover:bg-[--color-surface-2] hover:text-[--color-text-primary] transition-colors"
+            className="mt-5 p-1.5 rounded-[--radius-sm] text-[--color-text-tertiary] hover:bg-[--color-surface-2] hover:text-[--color-text-primary] transition-colors"
             aria-label="Back to trips"
           >
             <IconArrowLeft size={16} stroke={2} aria-hidden />
           </Link>
-          <div>
-            <div className="flex items-center gap-2.5 mb-1">
-              <h1 className="text-[18px] font-semibold text-[--color-text-primary]">
-                Trip {trip.reference}
-              </h1>
+
+          <div className="min-w-0">
+            <PageHeading
+              size="md"
+              eyebrow="Trips"
+              title={`Trip ${trip.reference}`}
+              subtitle={
+                <>
+                  {trip.driver?.name ?? (
+                    <span className="text-[--color-warning] font-medium">Needs a driver</span>
+                  )}
+                  {' · '}{trip.warehouseName} · {trip.tripType} · {OPTIMISE_LABEL[trip.optimiseFor]}
+                </>
+              }
+            />
+            <div className="mt-2.5">
               <TripStatusPill status={trip.status} />
             </div>
-            <p className="text-[12px] text-[--color-text-tertiary]">
-              {trip.driver?.name ?? (
-                <span className="text-[--color-warning] font-medium">Needs a driver</span>
-              )}
-              {' · '}{trip.warehouseName} · {trip.tripType} · {OPTIMISE_LABEL[trip.optimiseFor]}
-            </p>
           </div>
         </div>
 
