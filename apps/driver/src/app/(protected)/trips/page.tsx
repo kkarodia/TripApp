@@ -17,7 +17,7 @@ export default function TripsPage() {
     : 'No trips assigned'
 
   return (
-    <div className="min-h-dvh bg-[--color-surface-1]">
+    <div className="min-h-dvh surface-pattern-ground">
       <AppBar title="Today's trips" subtitle={subtitle} />
 
       <main

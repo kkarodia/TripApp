@@ -17,7 +17,7 @@ export default function RouteSheetsPage() {
         </p>
       </div>
 
-      <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] divide-y divide-[--color-border-subtle]">
+      <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] divide-y divide-[--color-border-subtle]">
         {trips.map(trip => {
           const arrived = trip.stops.filter(s => s.status === 'arrived').length
           return (

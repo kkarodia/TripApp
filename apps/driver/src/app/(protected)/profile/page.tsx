@@ -13,7 +13,7 @@ const INFO_ROWS = [
 
 export default function ProfilePage() {
   return (
-    <div className="min-h-dvh bg-[--color-surface-1]">
+    <div className="min-h-dvh surface-pattern-ground">
       <AppBar title="Profile" />
 
       <main
@@ -21,7 +21,7 @@ export default function ProfilePage() {
         style={{ paddingTop: 'calc(var(--header-height) + 16px)' }}
       >
         {/* Avatar card */}
-        <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] p-4 mb-3 flex items-center gap-3">
+        <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] p-4 mb-3 flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-[--color-brand] flex items-center justify-center flex-shrink-0">
             <span className="text-[13px] font-semibold text-white">JD</span>
           </div>
@@ -32,7 +32,7 @@ export default function ProfilePage() {
         </div>
 
         {/* Info rows */}
-        <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden mb-3">
+        <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden mb-3">
           {INFO_ROWS.map(({ label, value }, i) => (
             <div
               key={label}

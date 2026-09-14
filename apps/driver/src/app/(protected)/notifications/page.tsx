@@ -17,7 +17,7 @@ export default function NotificationsPage() {
   const unread = MOCK_NOTIFICATIONS.filter(n => !n.read).length
 
   return (
-    <div className="min-h-dvh bg-[--color-surface-1]">
+    <div className="min-h-dvh surface-pattern-ground">
       <AppBar
         title="Notifications"
         subtitle={unread > 0 ? `${unread} unread` : 'All caught up'}
@@ -27,7 +27,7 @@ export default function NotificationsPage() {
         className="px-4 pb-24"
         style={{ paddingTop: 'calc(var(--header-height) + 16px)' }}
       >
-        <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden">
+        <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden">
           {MOCK_NOTIFICATIONS.length === 0 ? (
             <div className="flex items-center justify-center py-12">
               <p className="text-[13px] text-[--color-text-tertiary]">No notifications</p>
@@ -35,7 +35,7 @@ export default function NotificationsPage() {
           ) : MOCK_NOTIFICATIONS.map((notif, i) => (
             <div
               key={notif.id}
-              className={`flex items-start gap-3 px-4 py-3.5 ${i < MOCK_NOTIFICATIONS.length - 1 ? 'border-b border-[--color-border-subtle]' : ''} ${!notif.read ? 'bg-[--color-brand-subtle]' : ''}`}
+              className={`flex items-start gap-3 px-4 py-3.5 ${i < MOCK_NOTIFICATIONS.length - 1 ? 'border-b border-[--color-border-subtle]' : ''} ${!notif.read ? 'bg-[--color-accent-subtle] shadow-[inset_3px_0_0_var(--color-accent)]' : ''}`}
             >
               <div className="flex-shrink-0 mt-1.5">
                 {notif.read

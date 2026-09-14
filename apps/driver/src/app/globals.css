@@ -16,6 +16,24 @@
   --color-brand-hover:  var(--color-navy-800);
   --color-brand-subtle: var(--color-navy-50);
 
+  /* Aliases used by trip-header, badge and button. */
+  --color-navy:       var(--color-navy-800);
+  --color-navy-light: var(--color-navy-600);
+
+  /* ── Light-blue accent - matches admin ──────────────────────── */
+  --color-sky-50:  #f4f8fd;
+  --color-sky-100: #e7f0fa;
+  --color-sky-200: #d3e3f5;
+  --color-sky-300: #b3cdec;
+  --color-sky-400: #7ea9dc;
+  --color-sky-500: #5a8fd0;
+
+  --color-accent:        var(--color-sky-500);
+  --color-accent-subtle: var(--color-sky-100);
+  --color-accent-border: var(--color-sky-200);
+
+  --color-card-muted: var(--color-sky-100);
+
   /* ── Semantic - matches admin ───────────────────────────────── */
   --color-success:        #1d9e75;
   --color-success-bg:     #e1f5ee;
@@ -35,22 +53,27 @@
 
   /* ── Surfaces - matches admin ───────────────────────────────── */
   --color-surface-0: #ffffff;
-  --color-surface-1: #f7f7f7;
-  --color-surface-2: #f0f0f0;
-  --color-surface-3: #e8e8e8;
+  --color-surface-1: #f2f6fc;
+  --color-surface-2: #e8f0f9;
+  --color-surface-3: #dbe7f4;
 
-  --color-border-subtle:  #ebebeb;
-  --color-border-default: #e0e0e0;
-  --color-border-strong:  #cccccc;
+  --color-border-subtle:  #e6edf6;
+  --color-border-default: #d8e3f0;
+  --color-border-strong:  #b9cbe0;
 
   --color-text-primary:   #111111;
-  --color-text-secondary: #555555;
-  --color-text-tertiary:  #999999;
-  --color-text-disabled:  #cccccc;
+  --color-text-secondary: #4e5b70;
+  --color-text-tertiary:  #8c99ad;
+  --color-text-disabled:  #bcc7d6;
 
   /* ── Typography - matches admin ─────────────────────────────── */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Role aliases used by trip-header, badge and button. */
+  --font-heading: var(--font-sans);
+  --font-body:    var(--font-sans);
+  --font-label:   var(--font-sans);
 
   /* ── Radius - matches admin ─────────────────────────────────── */
   --radius-sm: 6px;
@@ -61,6 +84,12 @@
   /* ── Mobile layout ──────────────────────────────────────────── */
   --header-height: 60px;
   --dock-height:   64px;
+
+  /* ── Backdrop pattern - matches admin ───────────────────────────
+     Tiled a little tighter than admin, since phone surfaces are
+     narrow and a 640px tile would only ever show one slice. */
+  --app-pattern:      url('/background.jpeg');
+  --app-pattern-size: 420px auto;
 }
 
 @layer base {
@@ -90,4 +119,39 @@
   ::-webkit-scrollbar { width: 4px; height: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 9999px; }
+}
+
+/* ── Patterned surfaces - matches admin ─────────────────────────────
+   A flat wash sits on top of the tile; its opacity is what keeps text
+   legible, so the darker a surface must read, the less tile shows. */
+@layer components {
+  .surface-pattern-ground {
+    background-color: var(--color-surface-1);
+    background-image:
+      linear-gradient(rgba(242, 246, 252, 0.93), rgba(242, 246, 252, 0.93)),
+      var(--app-pattern);
+    background-size: auto, var(--app-pattern-size);
+    background-repeat: repeat, repeat;
+    background-position: center, center;
+  }
+
+  .surface-pattern-panel {
+    background-color: var(--color-surface-0);
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.955), rgba(255, 255, 255, 0.955)),
+      var(--app-pattern);
+    background-size: auto, var(--app-pattern-size);
+    background-repeat: repeat, repeat;
+    background-position: center, center;
+  }
+
+  .surface-pattern-navy {
+    background-color: var(--color-navy-800);
+    background-image:
+      linear-gradient(rgba(15, 34, 64, 0.84), rgba(15, 34, 64, 0.84)),
+      var(--app-pattern);
+    background-size: auto, var(--app-pattern-size);
+    background-repeat: repeat, repeat;
+    background-position: center, center;
+  }
 }

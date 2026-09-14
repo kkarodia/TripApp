@@ -28,7 +28,7 @@ export function RouteSheetToolbar({ trip }: RouteSheetToolbarProps) {
   }
 
   return (
-    <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-[--color-border-subtle] print:hidden">
+    <div className="flex items-center justify-between px-6 py-4 surface-pattern-panel border-b border-[--color-border-subtle] print:hidden">
       <div className="flex items-center gap-3">
         <Link
           href={`/trips/${trip.id}`}

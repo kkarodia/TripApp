@@ -24,7 +24,7 @@ export function StopRow({ stop, tripId, isCurrent, isLast }: StopRowProps) {
       href={`/trips/${tripId}/stops/${stop.id}`}
       className={cn(
         'flex items-start gap-3 px-4 py-3 transition-colors hover:bg-[--color-surface-1]',
-        isCurrent && 'bg-[--color-brand-subtle]',
+        isCurrent && 'bg-[--color-accent-subtle] shadow-[inset_3px_0_0_var(--color-accent)]',
         !isLast && 'border-b border-[--color-border-subtle]'
       )}
     >

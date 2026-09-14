@@ -11,7 +11,7 @@ interface AppBarProps {
 export function AppBar({ title, subtitle, back, action }: AppBarProps) {
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-40 flex items-center bg-white border-b border-[--color-border-subtle]"
+      className="fixed top-0 left-0 right-0 z-40 flex items-center surface-pattern-panel border-b border-[--color-border-subtle]"
       style={{
         height: 'var(--header-height)',
         paddingTop: 'env(safe-area-inset-top, 0px)',

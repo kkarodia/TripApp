@@ -12,7 +12,7 @@ interface StopDotProps {
 const variantClasses: Record<DotVariant, string> = {
   done:    'bg-[--color-success-bg] text-[--color-success] border border-[--color-success-border]',
   active:  'bg-[--color-brand] text-white border border-[--color-brand]',
-  pending: 'bg-white text-[--color-text-tertiary] border border-[--color-border-default]',
+  pending: 'bg-[--color-sky-50] text-[--color-accent] border border-[--color-accent-border]',
   error:   'bg-[--color-danger-bg] text-[--color-danger] border border-[--color-danger-border]',
 }
 

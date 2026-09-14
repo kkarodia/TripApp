@@ -11,7 +11,7 @@ interface BadgeProps {
 const variantClasses: Record<BadgeVariant, string> = {
   default: 'bg-[--color-card-muted] text-[--color-text-tertiary]',
   success: 'bg-[--color-success-bg] text-[--color-success]',
-  warning: 'bg-[#faeeda] text-[--color-warning]',
+  warning: 'bg-[--color-warning-bg] text-[--color-warning]',
   navy:    'bg-[--color-navy] text-white',
   unread:  'bg-[--color-navy] text-white',
 }

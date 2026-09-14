@@ -67,7 +67,7 @@ export function ActiveTripClient({ initialTrip }: ActiveTripClientProps) {
     : `Departed ${departedAt} · ${arrived}/${total} stops`
 
   return (
-    <div className="min-h-dvh bg-[--color-surface-1]">
+    <div className="min-h-dvh surface-pattern-ground">
       <AppBar
         title={trip.reference}
         subtitle={subtitle}
@@ -80,7 +80,7 @@ export function ActiveTripClient({ initialTrip }: ActiveTripClientProps) {
         style={{ paddingTop: 'calc(var(--header-height) + 12px)' }}
       >
         {/* Progress bar */}
-        <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] p-4">
+        <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] p-4">
           <div className="flex items-center justify-between mb-2">
             <p className="text-[13px] font-medium text-[--color-text-primary]">
               {isCompleted ? 'Delivery complete' : isAssigned ? 'Ready to depart' : 'On route'}
@@ -97,7 +97,7 @@ export function ActiveTripClient({ initialTrip }: ActiveTripClientProps) {
 
         {/* Pre-departure */}
         {isAssigned && (
-          <div className="bg-white rounded-[--radius-lg] border border-[--color-border-default] p-4">
+          <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-default] p-4">
             <p className="text-[13px] font-semibold text-[--color-text-primary] mb-1">Ready to depart?</p>
             <p className="text-[12px] text-[--color-text-secondary] mb-3 leading-relaxed">
               Collect your route sheet and confirm your vehicle before starting.
@@ -118,8 +118,8 @@ export function ActiveTripClient({ initialTrip }: ActiveTripClientProps) {
 
         {/* Next stop card */}
         {isActive && currentStop && (
-          <div className="bg-white rounded-[--radius-lg] border border-[--color-border-default] p-4">
-            <p className="text-[10px] font-medium text-[--color-text-tertiary] uppercase tracking-[0.06em] mb-2">
+          <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-accent-border] p-4">
+            <p className="text-[10px] font-medium text-[--color-accent] uppercase tracking-[0.06em] mb-2">
               Next stop
             </p>
             <p className="text-[16px] font-semibold text-[--color-text-primary] mb-0.5">
@@ -159,7 +159,7 @@ export function ActiveTripClient({ initialTrip }: ActiveTripClientProps) {
 
         {/* Completed */}
         {(isCompleted || (isActive && allDone)) && (
-          <div className="bg-white rounded-[--radius-lg] border border-[--color-success-border] p-4 flex items-center gap-3">
+          <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-success-border] p-4 flex items-center gap-3">
             <div className="w-10 h-10 rounded-full bg-[--color-success-bg] flex items-center justify-center flex-shrink-0">
               <IconMapPinCheck size={20} stroke={2} className="text-[--color-success]" aria-hidden />
             </div>
@@ -192,7 +192,7 @@ export function ActiveTripClient({ initialTrip }: ActiveTripClientProps) {
           <p className="text-[10px] font-medium text-[--color-text-tertiary] uppercase tracking-[0.06em] mb-2 px-0.5">
             {isAssigned ? 'Stops preview' : 'All stops'}
           </p>
-          <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden">
+          <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden">
             {trip.stops.map((stop: Stop, i: number) => {
               const isCurrent = isActive && stop.status === 'pending' &&
                 trip.stops.slice(0, i).every((s: Stop) => s.status === 'arrived')

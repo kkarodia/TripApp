@@ -170,7 +170,7 @@ export function TripMap({ trip }: TripMapProps) {
           <p className="text-[12px] text-[--color-text-tertiary] leading-relaxed">
             Add <code className="bg-[--color-surface-2] px-1 rounded">NEXT_PUBLIC_GOOGLE_MAPS_KEY</code> to .env.local
           </p>
-          <div className="mt-6 w-full max-w-[280px] bg-white rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden text-left">
+          <div className="mt-6 w-full max-w-[280px] surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden text-left">
             {trip.stops.map((stop, i) => {
               const isArrived = stop.status === 'arrived'
               const isNext    = stop.status === 'pending' && trip.stops.slice(0, i).every(s => s.status === 'arrived')

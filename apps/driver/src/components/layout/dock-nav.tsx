@@ -27,7 +27,7 @@ export function DockNav({ unreadCount = 0 }: DockNavProps) {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-40 flex bg-white border-t border-[--color-border-subtle]"
+      className="fixed bottom-0 left-0 right-0 z-40 flex surface-pattern-panel border-t border-[--color-border-subtle]"
       style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)', height: 'calc(var(--dock-height) + env(safe-area-inset-bottom, 0px))' }}
       aria-label="Main navigation"
     >
@@ -49,7 +49,15 @@ export function DockNav({ unreadCount = 0 }: DockNavProps) {
             )}
             style={active ? { borderTop: '2px solid var(--color-brand)', marginTop: '-1px' } : {}}
           >
-            <Icon size={22} stroke={active ? 2 : 1.5} aria-hidden />
+            {/* Light-blue pill carries the active state; the icon stays navy. */}
+            <span
+              className={cn(
+                'flex items-center justify-center px-3.5 py-0.5 rounded-full transition-colors',
+                active ? 'bg-[--color-accent-subtle]' : 'bg-transparent'
+              )}
+            >
+              <Icon size={22} stroke={active ? 2 : 1.5} aria-hidden />
+            </span>
             <span
               className={cn(
                 'text-[10px] font-medium leading-none',

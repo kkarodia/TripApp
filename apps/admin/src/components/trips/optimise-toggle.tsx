@@ -39,7 +39,7 @@ export function OptimiseToggle({ value, onChange, disabled }: OptimiseToggleProp
               'disabled:opacity-50 disabled:cursor-not-allowed',
               active
                 ? 'bg-[--color-brand] text-white border-[--color-brand]'
-                : 'bg-white text-[--color-text-secondary] border-[--color-border-default] hover:border-[--color-border-strong] hover:text-[--color-text-primary]'
+                : 'bg-white text-[--color-text-secondary] border-[--color-border-default] hover:bg-[--color-sky-50] hover:border-[--color-accent-border] hover:text-[--color-text-primary]'
             )}
           >
             <Icon size={13} stroke={active ? 2.5 : 1.5} aria-hidden />

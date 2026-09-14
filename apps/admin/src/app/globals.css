@@ -16,6 +16,20 @@
   --color-brand-hover:  var(--color-navy-800);
   --color-brand-subtle: var(--color-navy-50);
 
+  /* ── Light-blue accent ──────────────────────────────────────────
+     The supporting tier: grounds, tinted fills, hairlines and quiet
+     accents. Navy stays the brand, white stays the focus surface. */
+  --color-sky-50:  #f4f8fd;
+  --color-sky-100: #e7f0fa;
+  --color-sky-200: #d3e3f5;
+  --color-sky-300: #b3cdec;
+  --color-sky-400: #7ea9dc;
+  --color-sky-500: #5a8fd0;
+
+  --color-accent:        var(--color-sky-500);
+  --color-accent-subtle: var(--color-sky-100);
+  --color-accent-border: var(--color-sky-200);
+
   /* ── Semantic status colours ────────────────────────────────── */
   --color-success:        #1d9e75;
   --color-success-bg:     #e1f5ee;
@@ -33,20 +47,25 @@
   --color-info-bg:     #e6f1fb;
   --color-info-border: #85b7eb;
 
-  /* ── Neutral surface scale ──────────────────────────────────── */
+  /* ── Surface scale ──────────────────────────────────────────────
+     surface-0 stays pure white so cards, tables and the topbar read
+     as the focus layer; 1-3 carry a light-blue cast for grounds,
+     hovers and progress tracks. */
   --color-surface-0: #ffffff;
-  --color-surface-1: #f7f7f7;
-  --color-surface-2: #f0f0f0;
-  --color-surface-3: #e8e8e8;
+  --color-surface-1: #f2f6fc;
+  --color-surface-2: #e8f0f9;
+  --color-surface-3: #dbe7f4;
 
-  --color-border-subtle:   #ebebeb;
-  --color-border-default:  #e0e0e0;
-  --color-border-strong:   #cccccc;
+  --color-border-subtle:   #e6edf6;
+  --color-border-default:  #d8e3f0;
+  --color-border-strong:   #b9cbe0;
 
+  /* Cool-tinted greys - same lightness as before, so the type
+     hierarchy is unchanged; only the hue shifts toward the blue. */
   --color-text-primary:   #111111;
-  --color-text-secondary: #555555;
-  --color-text-tertiary:  #999999;
-  --color-text-disabled:  #cccccc;
+  --color-text-secondary: #4e5b70;
+  --color-text-tertiary:  #8c99ad;
+  --color-text-disabled:  #bcc7d6;
 
   /* ── Typography ─────────────────────────────────────────────── */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
@@ -59,8 +78,15 @@
   --radius-xl: 16px;
 
   /* ── Sidebar dimensions ─────────────────────────────────────── */
-  --sidebar-width: 220px;
+  --sidebar-width: 244px;
   --topbar-height: 60px;
+
+  /* ── Backdrop pattern ───────────────────────────────────────────
+     Navy line-art tile. Always drawn under a wash so it reads as
+     texture, never as an image; `auto` height keeps the 11:6 source
+     aspect ratio intact so nothing is stretched. */
+  --app-pattern:      url('/background.jpeg');
+  --app-pattern-size: 640px auto;
 }
 
 @layer base {
@@ -80,6 +106,45 @@
   ::-webkit-scrollbar { width: 4px; height: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--color-border-strong); border-radius: 9999px; }
+}
+
+/* ── Patterned surfaces ─────────────────────────────────────────────
+   Each rule stacks a flat wash on top of the tile. The wash opacity is
+   what keeps text legible, so it does the heavy lifting: the darker the
+   surface needs to read, the less of the tile comes through. */
+@layer components {
+  /* App ground - the pattern's strongest showing on light surfaces. */
+  .surface-pattern-ground {
+    background-color: var(--color-surface-1);
+    background-image:
+      linear-gradient(rgba(242, 246, 252, 0.93), rgba(242, 246, 252, 0.93)),
+      var(--app-pattern);
+    background-size: auto, var(--app-pattern-size);
+    background-repeat: repeat, repeat;
+    background-position: center, center;
+  }
+
+  /* Cards, tables, bars - a whisper only; body text sits on these. */
+  .surface-pattern-panel {
+    background-color: var(--color-surface-0);
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.955), rgba(255, 255, 255, 0.955)),
+      var(--app-pattern);
+    background-size: auto, var(--app-pattern-size);
+    background-repeat: repeat, repeat;
+    background-position: center, center;
+  }
+
+  /* Navy chrome - the tile's native ground, so it can read strongest. */
+  .surface-pattern-navy {
+    background-color: var(--color-navy-800);
+    background-image:
+      linear-gradient(rgba(15, 34, 64, 0.84), rgba(15, 34, 64, 0.84)),
+      var(--app-pattern);
+    background-size: auto, var(--app-pattern-size);
+    background-repeat: repeat, repeat;
+    background-position: center, center;
+  }
 }
 
 /* ── Print styles ───────────────────────────────────────────────── */
@@ -107,5 +172,12 @@
   /* Prevent table rows from breaking across pages */
   tr {
     page-break-inside: avoid;
+  }
+
+  /* The backdrop tile is screen decoration - never send it to paper. */
+  .surface-pattern-ground,
+  .surface-pattern-panel,
+  .surface-pattern-navy {
+    background-image: none !important;
   }
 }

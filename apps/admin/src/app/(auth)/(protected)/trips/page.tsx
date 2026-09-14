@@ -18,7 +18,7 @@ export default function TripsPage() {
       />
 
       <PageContent>
-        <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] divide-y divide-[--color-border-subtle]">
+        <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] divide-y divide-[--color-border-subtle]">
           {trips.length === 0 ? (
             <p className="px-5 py-12 text-[13px] text-[--color-text-tertiary] text-center">
               No trips yet

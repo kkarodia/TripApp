@@ -216,7 +216,7 @@ export function TripPlanner() {
       )}
 
       {/* ── Two-panel layout ─────────────────────────────────────── */}
-      <div className="flex flex-1 min-h-0 mt-3 mx-4 mb-4 rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden bg-white">
+      <div className="flex flex-1 min-h-0 mt-3 mx-4 mb-4 rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden surface-pattern-panel">
 
         {/* Left: stops */}
         <div className="w-[420px] flex-shrink-0 border-r border-[--color-border-subtle] flex flex-col min-h-0">

@@ -17,7 +17,7 @@ const OPTIMISE_LABEL: Record<OptimiseFor, string> = {
 
 export function TripMetaBar({ trip }: TripMetaBarProps) {
   return (
-    <div className="bg-white border-b border-[--color-border-subtle] px-6 py-4">
+    <div className="surface-pattern-panel border-b border-[--color-accent-border] px-6 py-4">
 
       {/* ── Back + title row ──────────────────────────────────── */}
       <div className="flex items-start justify-between gap-4">

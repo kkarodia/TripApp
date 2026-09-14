@@ -14,7 +14,7 @@ export function TripHeader({
 }: TripHeaderProps) {
   return (
     <div
-      className={cn('bg-[--color-navy] px-5 pb-8', className)}
+      className={cn('surface-pattern-navy px-5 pb-8', className)}
       style={{ paddingTop: 'max(48px, env(safe-area-inset-top, 48px))' }}
     >
       {/* Top row — status pill only; clock removed (SSR/client mismatch) */}
@@ -26,7 +26,7 @@ export function TripHeader({
 
       {/* Eyebrow */}
       <p
-        className="text-[9px] uppercase tracking-[0.12em] text-white/40 mb-1.5"
+        className="text-[9px] uppercase tracking-[0.12em] text-[--color-sky-500] mb-1.5"
         style={{ fontFamily: 'var(--font-label)' }}
       >
         {eyebrow}
@@ -42,7 +42,7 @@ export function TripHeader({
 
       {/* Subtitle */}
       <p
-        className="text-[11px] text-white/50 tracking-[0.02em]"
+        className="text-[11px] text-[--color-sky-300] tracking-[0.02em]"
         style={{ fontFamily: 'var(--font-body)' }}
       >
         {subtitle}
@@ -53,7 +53,7 @@ export function TripHeader({
         <div className="flex items-center gap-3 mt-4">
           <div className="flex-1 h-[3px] bg-white/12 rounded-full overflow-hidden">
             <div
-              className="h-full bg-white/50 rounded-full transition-all duration-700"
+              className="h-full bg-[--color-sky-300] rounded-full transition-all duration-700"
               style={{ width: `${Math.round((progress.done / progress.total) * 100)}%` }}
               role="progressbar"
               aria-valuenow={progress.done}
@@ -62,7 +62,7 @@ export function TripHeader({
             />
           </div>
           <span
-            className="text-[10px] text-white/35 tabular-nums"
+            className="text-[10px] text-[--color-sky-500] tabular-nums"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             {progress.done}/{progress.total}

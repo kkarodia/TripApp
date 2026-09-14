@@ -49,7 +49,7 @@ export function LoginForm() {
   }
 
   return (
-    <div className="min-h-screen bg-[--color-surface-1] flex items-center justify-center px-4">
+    <div className="min-h-screen surface-pattern-ground flex items-center justify-center px-4">
       <div className="w-full max-w-[380px]">
 
         {/* ── Logo ──────────────────────────────────────────────────── */}
@@ -68,7 +68,7 @@ export function LoginForm() {
         </div>
 
         {/* ── Card ──────────────────────────────────────────────────── */}
-        <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] p-7">
+        <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] p-7">
           <h1 className="text-[18px] font-semibold text-[--color-text-primary] mb-1">
             Sign in
           </h1>

@@ -24,7 +24,7 @@ export function TripFilterSidebar({
   onSelect,
 }: TripFilterSidebarProps) {
   return (
-    <div className="w-[280px] flex-shrink-0 bg-white border-r border-[--color-border-subtle] flex flex-col">
+    <div className="w-[280px] flex-shrink-0 surface-pattern-panel border-r border-[--color-border-subtle] flex flex-col">
 
       {/* Header */}
       <div className="px-4 py-3.5 border-b border-[--color-border-subtle]">
@@ -42,7 +42,7 @@ export function TripFilterSidebar({
         className={cn(
           'flex items-center gap-2.5 px-4 py-3 text-left border-b border-[--color-border-subtle] transition-colors',
           selectedTripId === null
-            ? 'bg-[--color-brand-subtle] text-[--color-brand]'
+            ? 'bg-[--color-accent-subtle] text-[--color-brand] shadow-[inset_3px_0_0_var(--color-accent)]'
             : 'text-[--color-text-secondary] hover:bg-[--color-surface-1]'
         )}
       >
@@ -67,7 +67,7 @@ export function TripFilterSidebar({
               className={cn(
                 'w-full flex items-start gap-3 px-4 py-3.5 text-left border-b border-[--color-border-subtle] transition-colors',
                 isSelected
-                  ? 'bg-[--color-brand-subtle]'
+                  ? 'bg-[--color-accent-subtle] shadow-[inset_3px_0_0_var(--color-accent)]'
                   : 'hover:bg-[--color-surface-1]'
               )}
             >

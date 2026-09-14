@@ -13,7 +13,7 @@ interface NavigateClientProps {
 export function NavigateClient({ activeTrip }: NavigateClientProps) {
   if (!activeTrip) {
     return (
-      <div className="min-h-dvh bg-[--color-surface-1]">
+      <div className="min-h-dvh surface-pattern-ground">
         <AppBar title="Navigate" subtitle="No active trip" />
         <main
           className="px-4 pb-24 flex flex-col items-center justify-center"
@@ -48,7 +48,7 @@ export function NavigateClient({ activeTrip }: NavigateClientProps) {
     : null
 
   return (
-    <div className="min-h-dvh bg-[--color-surface-1]">
+    <div className="min-h-dvh surface-pattern-ground">
       <AppBar
         title={activeTrip.reference}
         subtitle={currentStop ? `Stop ${arrived + 1} of ${total}` : 'All stops delivered'}
@@ -66,14 +66,14 @@ export function NavigateClient({ activeTrip }: NavigateClientProps) {
 
         {/* Floating current-stop card */}
         {currentStop ? (
-          <div className="absolute left-3 right-3 bottom-3 bg-white rounded-[--radius-xl] border border-[--color-border-subtle] p-4"
+          <div className="absolute left-3 right-3 bottom-3 surface-pattern-panel rounded-[--radius-xl] border border-[--color-border-subtle] p-4"
             style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.10)' }}
           >
             <div className="flex items-start justify-between mb-1">
               <p className="text-[10px] font-medium text-[--color-text-tertiary] uppercase tracking-[0.06em]">
                 Next stop · {arrived + 1} of {total}
               </p>
-              <span className="text-[10px] font-medium text-[--color-brand] bg-[--color-brand-subtle] px-2 py-0.5 rounded-full">
+              <span className="text-[10px] font-medium text-[--color-brand] bg-[--color-accent-subtle] px-2 py-0.5 rounded-full">
                 {currentStop.distanceKm !== null ? `${currentStop.distanceKm} km` : 'En route'}
               </span>
             </div>
@@ -106,7 +106,7 @@ export function NavigateClient({ activeTrip }: NavigateClientProps) {
             </div>
           </div>
         ) : (
-          <div className="absolute left-3 right-3 bottom-3 bg-white rounded-[--radius-xl] border border-[--color-success-border] p-4 flex items-center gap-3"
+          <div className="absolute left-3 right-3 bottom-3 surface-pattern-panel rounded-[--radius-xl] border border-[--color-success-border] p-4 flex items-center gap-3"
             style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}
           >
             <div className="w-10 h-10 rounded-full bg-[--color-success-bg] flex items-center justify-center flex-shrink-0">

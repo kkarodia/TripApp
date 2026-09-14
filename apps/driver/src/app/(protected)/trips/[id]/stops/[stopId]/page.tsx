@@ -28,7 +28,7 @@ export default async function StopDetailPage({ params }: Props) {
   const total = trip.stops.length
 
   return (
-    <div className="min-h-dvh bg-[--color-surface-1]">
+    <div className="min-h-dvh surface-pattern-ground">
       <AppBar
         title={stop.clientName}
         subtitle={`Stop ${stop.sequence} of ${total}`}
@@ -41,7 +41,7 @@ export default async function StopDetailPage({ params }: Props) {
         style={{ paddingTop: 'calc(var(--header-height) + 12px)' }}
       >
         {/* Address */}
-        <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] p-4">
+        <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] p-4">
           <p className="text-[11px] font-medium text-[--color-text-tertiary] uppercase tracking-[0.06em] mb-2">
             Address
           </p>
@@ -65,7 +65,7 @@ export default async function StopDetailPage({ params }: Props) {
         </div>
 
         {/* Details */}
-        <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden">
+        <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden">
           <div className="px-4 py-3 border-b border-[--color-border-subtle]">
             <p className="text-[11px] font-medium text-[--color-text-tertiary] uppercase tracking-[0.06em]">
               Delivery details

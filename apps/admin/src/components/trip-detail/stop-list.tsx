@@ -41,7 +41,7 @@ export function StopList({ stops, tripStatus, onDeleteStop }: StopListProps) {
             key={stop.id}
             className={cn(
               'transition-colors',
-              isActive && 'bg-[--color-brand-subtle]',
+              isActive && 'bg-[--color-accent-subtle] shadow-[inset_3px_0_0_var(--color-accent)]',
               stop.geocodeFailed && 'bg-[--color-danger-bg]'
             )}
           >

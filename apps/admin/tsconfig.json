@@ -24,8 +24,7 @@
     ],
     "paths": {
       "@/*": [
-        "./src/*",
-        "./*"
+        "./src/*"
       ],
       "@routedesk/types": [
         "../../packages/types/src/index.ts"
