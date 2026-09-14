@@ -94,9 +94,11 @@ export function StopRow({ stop, index, isDep, isRtn, onEdit, onDelete, disabled 
         )}
       </div>
 
-      {/* ── Actions (visible on hover) ─────────────────────────── */}
+      {/* ── Actions ───────────────────────────────────────────────
+          Revealed on hover only where the device can hover; touch screens
+          have no hover, so there they are always shown. */}
       {!isDep && !isRtn && !disabled && (
-        <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
+        <div className="flex items-center gap-1 transition-opacity flex-shrink-0 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100">
           <button
             onClick={() => onEdit?.(stop)}
             className="w-7 h-7 flex items-center justify-center rounded-[--radius-sm] border border-[--color-border-default] text-[--color-text-tertiary] hover:text-[--color-text-primary] hover:bg-white transition-colors"

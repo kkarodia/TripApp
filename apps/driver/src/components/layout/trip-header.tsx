@@ -51,7 +51,7 @@ export function TripHeader({
       {/* Progress bar */}
       {progress && (
         <div className="flex items-center gap-3 mt-4">
-          <div className="flex-1 h-[3px] bg-white/12 rounded-full overflow-hidden">
+          <div className="flex-1 h-[3px] bg-[--color-navy-600] rounded-full overflow-hidden">
             <div
               className="h-full bg-[--color-sky-300] rounded-full transition-all duration-700"
               style={{ width: `${Math.round((progress.done / progress.total) * 100)}%` }}

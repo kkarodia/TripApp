@@ -189,7 +189,7 @@ export function TripPlanner() {
   }
 
   return (
-    <div className="flex flex-col flex-1 min-h-0">
+    <div className="flex flex-col lg:flex-1 lg:min-h-0">
 
       {/* ── Config bar ───────────────────────────────────────────── */}
       <ConfigBar
@@ -215,11 +215,11 @@ export function TripPlanner() {
         </div>
       )}
 
-      {/* ── Two-panel layout ─────────────────────────────────────── */}
-      <div className="flex flex-1 min-h-0 mt-3 mx-4 mb-4 rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden surface-pattern-panel">
+      {/* ── Two-panel layout - stacked below lg ─────────────────── */}
+      <div className="flex flex-col mt-3 mx-4 mb-4 rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden bg-white lg:flex-row lg:flex-1 lg:min-h-0">
 
         {/* Left: stops */}
-        <div className="w-[420px] flex-shrink-0 border-r border-[--color-border-subtle] flex flex-col min-h-0">
+        <div className="w-full border-b border-[--color-border-subtle] flex flex-col lg:w-[420px] lg:flex-shrink-0 lg:border-b-0 lg:border-r lg:min-h-0">
           <StopsPanel
             trip={trip}
             onAddStop={handleAddStop}
@@ -232,8 +232,8 @@ export function TripPlanner() {
           />
         </div>
 
-        {/* Right: map */}
-        <div className="flex-1 flex flex-col min-h-0">
+        {/* Right: map - needs an explicit height once stacked. */}
+        <div className="h-[420px] flex flex-col lg:h-auto lg:flex-1 lg:min-h-0">
           <MapPanel
             stops={stops}
             depot={DEPOTS[warehouse]}

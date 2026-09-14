@@ -18,14 +18,14 @@ const OPTIMISE_LABEL: Record<OptimiseFor, string> = {
 
 export function TripMetaBar({ trip }: TripMetaBarProps) {
   return (
-    <div className="relative surface-pattern-panel px-6 py-5">
+    <div className="relative bg-white px-4 py-4 sm:px-6 sm:py-5">
 
       {/* ── Back + title row ──────────────────────────────────── */}
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex items-start gap-3 min-w-0">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+        <div className="flex items-center gap-3 min-w-0">
           <Link
             href="/trips"
-            className="mt-5 p-1.5 rounded-[--radius-sm] text-[--color-text-tertiary] hover:bg-[--color-surface-2] hover:text-[--color-text-primary] transition-colors"
+            className="p-1.5 rounded-[--radius-sm] text-[--color-text-tertiary] hover:bg-[--color-surface-2] hover:text-[--color-text-primary] transition-colors"
             aria-label="Back to trips"
           >
             <IconArrowLeft size={16} stroke={2} aria-hidden />
@@ -34,8 +34,8 @@ export function TripMetaBar({ trip }: TripMetaBarProps) {
           <div className="min-w-0">
             <PageHeading
               size="md"
-              eyebrow="Trips"
               title={`Trip ${trip.reference}`}
+              trailing={<TripStatusPill status={trip.status} />}
               subtitle={
                 <>
                   {trip.driver?.name ?? (
@@ -45,14 +45,12 @@ export function TripMetaBar({ trip }: TripMetaBarProps) {
                 </>
               }
             />
-            <div className="mt-2.5">
-              <TripStatusPill status={trip.status} />
-            </div>
           </div>
         </div>
 
         {/* ── Actions ─────────────────────────────────────────── */}
-        <div className="flex items-center gap-2 flex-shrink-0">
+        {/* Stacked on phones, indented to line up with the title past the back arrow. */}
+        <div className="flex items-center gap-2 flex-shrink-0 pl-10 sm:pl-0">
           <Link
             href={`/route-sheets/${trip.id}`}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[--radius-md] border border-[--color-border-default] text-[12px] text-[--color-text-primary] hover:bg-[--color-surface-1] transition-colors"
@@ -71,7 +69,7 @@ export function TripMetaBar({ trip }: TripMetaBarProps) {
       </div>
 
       {/* ── Stats row ─────────────────────────────────────────── */}
-      <div className="flex items-center gap-6 mt-4 pt-4 border-t border-[--color-border-subtle]">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-4 pt-4 border-t border-[--color-border-subtle]">
         {[
           { label: 'Total distance',  value: trip.totalDistanceKm       ? `${trip.totalDistanceKm.toLocaleString('en-US')} km` : '-' },
           { label: 'Est. time',       value: trip.totalEstimatedMinutes  ? `${(trip.totalEstimatedMinutes / 60).toFixed(1)} hrs` : '-' },
@@ -92,6 +90,8 @@ export function TripMetaBar({ trip }: TripMetaBarProps) {
           </div>
         ))}
       </div>
+
+      <AccentRule />
     </div>
   )
 }

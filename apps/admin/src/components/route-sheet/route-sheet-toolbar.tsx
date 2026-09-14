@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { IconDownload, IconPrinter, IconArrowLeft } from '@tabler/icons-react'
 import { Button } from '@/components/ui'
+import { PageHeading, AccentRule } from '@/components/layout'
 import Link from 'next/link'
 import type { Trip } from '@routedesk/types'
 
@@ -28,8 +29,8 @@ export function RouteSheetToolbar({ trip }: RouteSheetToolbarProps) {
   }
 
   return (
-    <div className="flex items-center justify-between px-6 py-4 surface-pattern-panel border-b border-[--color-border-subtle] print:hidden">
-      <div className="flex items-center gap-3">
+    <div className="relative flex flex-col gap-3 px-4 py-4 bg-white print:hidden sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-6 sm:py-5">
+      <div className="flex items-center gap-3 min-w-0">
         <Link
           href={`/trips/${trip.id}`}
           className="p-1.5 rounded-[--radius-sm] text-[--color-text-tertiary] hover:bg-[--color-surface-2] hover:text-[--color-text-primary] transition-colors"
@@ -37,17 +38,14 @@ export function RouteSheetToolbar({ trip }: RouteSheetToolbarProps) {
         >
           <IconArrowLeft size={16} stroke={2} aria-hidden />
         </Link>
-        <div>
-          <p className="text-[14px] font-semibold text-[--color-text-primary]">
-            Route sheet - {trip.reference}
-          </p>
-          <p className="text-[12px] text-[--color-text-tertiary]">
-            {trip.driver?.name ?? 'Unassigned'} · {trip.stops.length} stops · {new Date(trip.createdAt).toLocaleDateString('en-ZA', { day: '2-digit', month: 'short', year: 'numeric' })}
-          </p>
-        </div>
+        <PageHeading
+          size="md"
+          title={`Route sheet - ${trip.reference}`}
+          subtitle={`${trip.driver?.name ?? 'Unassigned'} · ${trip.stops.length} stops · ${new Date(trip.createdAt).toLocaleDateString('en-ZA', { day: '2-digit', month: 'short', year: 'numeric' })}`}
+        />
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 pl-10 sm:pl-0">
         <Button
           variant="secondary"
           size="sm"
@@ -66,6 +64,8 @@ export function RouteSheetToolbar({ trip }: RouteSheetToolbarProps) {
           Print
         </Button>
       </div>
+
+      <AccentRule />
     </div>
   )
 }

@@ -1,10 +1,11 @@
+import type { TablerIcon } from '@tabler/icons-react'
 import { cn } from '@/lib/utils'
 
 interface MetricCardProps {
   label: string
   value: string | number
   sub?: string
-  icon?: React.ComponentType<{ size?: number; stroke?: number; className?: string }>
+  icon?: TablerIcon
   subVariant?: 'default' | 'success' | 'warning' | 'danger'
   className?: string
 }

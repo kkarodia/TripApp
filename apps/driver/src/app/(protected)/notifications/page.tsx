@@ -27,7 +27,7 @@ export default function NotificationsPage() {
         className="px-4 pb-24"
         style={{ paddingTop: 'calc(var(--header-height) + 16px)' }}
       >
-        <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden">
+        <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden">
           {MOCK_NOTIFICATIONS.length === 0 ? (
             <div className="flex items-center justify-center py-12">
               <p className="text-[13px] text-[--color-text-tertiary]">No notifications</p>

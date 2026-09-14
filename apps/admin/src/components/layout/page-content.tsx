@@ -7,7 +7,7 @@ interface PageContentProps {
 
 export function PageContent({ children, className }: PageContentProps) {
   return (
-    <div className={cn('flex-1 p-6 overflow-auto', className)}>
+    <div className={cn('flex-1 p-4 sm:p-6 overflow-auto', className)}>
       {children}
     </div>
   )

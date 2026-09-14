@@ -1,6 +1,6 @@
 ﻿'use client'
 
-import { IconClock, IconFileDownload, IconMapPinOff } from '@tabler/icons-react'
+import { IconClock, IconFileDownload, IconMapPinOff, type TablerIcon } from '@tabler/icons-react'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui'
 import { cn } from '@/lib/utils'
 import type { Notification } from '@routedesk/types'
@@ -17,7 +17,7 @@ function getAlertVariant(title: string): AlertVariant {
   return 'info'
 }
 
-const variantStyles: Record<AlertVariant, { icon: React.ComponentType<{ size?: number; stroke?: number }>, bg: string, text: string }> = {
+const variantStyles: Record<AlertVariant, { icon: TablerIcon, bg: string, text: string }> = {
   danger:  { icon: IconMapPinOff,     bg: 'bg-[--color-danger-bg]',  text: 'text-[--color-danger]' },
   warning: { icon: IconClock,         bg: 'bg-[--color-warning-bg]', text: 'text-[--color-warning]' },
   info:    { icon: IconFileDownload,  bg: 'bg-[--color-info-bg]',    text: 'text-[--color-info]' },

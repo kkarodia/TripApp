@@ -27,7 +27,7 @@ export function DockNav({ unreadCount = 0 }: DockNavProps) {
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-40 flex surface-pattern-panel border-t border-[--color-border-subtle]"
+      className="fixed bottom-0 left-0 right-0 z-40 flex bg-white border-t border-[--color-sky-200]"
       style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)', height: 'calc(var(--dock-height) + env(safe-area-inset-bottom, 0px))' }}
       aria-label="Main navigation"
     >

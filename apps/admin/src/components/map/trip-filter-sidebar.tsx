@@ -24,7 +24,7 @@ export function TripFilterSidebar({
   onSelect,
 }: TripFilterSidebarProps) {
   return (
-    <div className="w-[280px] flex-shrink-0 surface-pattern-panel border-r border-[--color-border-subtle] flex flex-col">
+    <div className="w-full max-h-[240px] flex-shrink-0 bg-white border-b border-[--color-border-subtle] flex flex-col lg:w-[280px] lg:max-h-none lg:border-b-0 lg:border-r">
 
       {/* Header */}
       <div className="px-4 py-3.5 border-b border-[--color-border-subtle]">

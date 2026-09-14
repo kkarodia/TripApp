@@ -40,7 +40,7 @@ export function RouteSheetDocument({
   return (
     <div
       className={cn(
-        'w-[794px] min-h-[1123px]',
+        'w-[794px] min-h-[1123px] flex-shrink-0 mx-auto',
         'bg-white text-[#111] font-sans',
         'px-[44px] py-[40px]',
         'text-[12px] leading-[1.5]'

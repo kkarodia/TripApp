@@ -135,16 +135,6 @@
     background-position: center, center;
   }
 
-  .surface-pattern-panel {
-    background-color: var(--color-surface-0);
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.955), rgba(255, 255, 255, 0.955)),
-      var(--app-pattern);
-    background-size: auto, var(--app-pattern-size);
-    background-repeat: repeat, repeat;
-    background-position: center, center;
-  }
-
   .surface-pattern-navy {
     background-color: var(--color-navy-800);
     background-image:

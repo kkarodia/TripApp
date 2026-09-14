@@ -35,7 +35,7 @@ export function ConfigBar({
   disabled,
 }: ConfigBarProps) {
   return (
-    <div className="grid grid-cols-4 gap-3 px-4 py-3 bg-[--color-surface-1] border-b border-[--color-border-subtle] items-end flex-shrink-0">
+    <div className="grid grid-cols-1 gap-3 px-4 py-3 sm:grid-cols-2 xl:grid-cols-4 bg-[--color-surface-1] border-b border-[--color-border-subtle] items-end flex-shrink-0">
 
       {/* Warehouse */}
       <div>

@@ -11,7 +11,7 @@ interface AppBarProps {
 export function AppBar({ title, subtitle, back, action }: AppBarProps) {
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-40 flex items-center surface-pattern-panel border-b border-[--color-border-subtle]"
+      className="fixed top-0 left-0 right-0 z-40 flex items-center bg-[--color-sky-100] border-b border-[--color-sky-200]"
       style={{
         height: 'var(--header-height)',
         paddingTop: 'env(safe-area-inset-top, 0px)',
@@ -20,7 +20,7 @@ export function AppBar({ title, subtitle, back, action }: AppBarProps) {
       {back && (
         <Link
           href={back}
-          className="flex items-center justify-center w-10 h-full pl-3 text-[--color-text-tertiary] hover:text-[--color-text-primary] flex-shrink-0 transition-colors"
+          className="flex items-center justify-center w-10 h-full pl-3 text-[--color-navy-600] hover:text-[--color-navy-800] flex-shrink-0 transition-colors"
           aria-label="Go back"
         >
           <IconChevronLeft size={20} stroke={1.5} aria-hidden />
@@ -32,7 +32,7 @@ export function AppBar({ title, subtitle, back, action }: AppBarProps) {
           {title}
         </p>
         {subtitle && (
-          <p className="text-[12px] text-[--color-text-tertiary] leading-tight mt-0.5 truncate">
+          <p className="text-[12px] text-[--color-text-secondary] leading-tight mt-0.5 truncate">
             {subtitle}
           </p>
         )}

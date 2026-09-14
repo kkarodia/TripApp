@@ -41,8 +41,8 @@ export default async function StopDetailPage({ params }: Props) {
         style={{ paddingTop: 'calc(var(--header-height) + 12px)' }}
       >
         {/* Address */}
-        <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] p-4">
-          <p className="text-[11px] font-medium text-[--color-text-tertiary] uppercase tracking-[0.06em] mb-2">
+        <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] p-4">
+          <p className="text-[11px] font-medium text-[--color-accent] uppercase tracking-[0.06em] mb-2">
             Address
           </p>
           <p className="text-[13px] text-[--color-text-primary] mb-3 leading-snug">
@@ -65,9 +65,9 @@ export default async function StopDetailPage({ params }: Props) {
         </div>
 
         {/* Details */}
-        <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden">
-          <div className="px-4 py-3 border-b border-[--color-border-subtle]">
-            <p className="text-[11px] font-medium text-[--color-text-tertiary] uppercase tracking-[0.06em]">
+        <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden">
+          <div className="px-4 py-3 bg-[--color-sky-50] border-b border-[--color-accent-border]">
+            <p className="text-[11px] font-medium text-[--color-accent] uppercase tracking-[0.06em]">
               Delivery details
             </p>
           </div>

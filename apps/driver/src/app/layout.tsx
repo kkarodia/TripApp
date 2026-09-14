@@ -26,7 +26,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: '#ffffff',
+  // Matches the light-blue app bar so the browser chrome reads as part of it.
+  themeColor: '#e7f0fa',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

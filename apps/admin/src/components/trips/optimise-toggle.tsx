@@ -1,6 +1,6 @@
 'use client'
 
-import { IconRuler, IconClock, IconGasStation } from '@tabler/icons-react'
+import { IconRuler, IconClock, IconGasStation, type TablerIcon } from '@tabler/icons-react'
 import { cn } from '@/lib/utils'
 import type { OptimiseFor } from '@routedesk/types'
 
@@ -13,7 +13,7 @@ interface OptimiseToggleProps {
 const OPTIONS: {
   value: OptimiseFor
   label: string
-  icon: React.ComponentType<{ size?: number; stroke?: number; className?: string }>
+  icon: TablerIcon
 }[] = [
   { value: 'distance', label: 'Distance', icon: IconRuler },
   { value: 'time',     label: 'Time',     icon: IconClock },
@@ -22,7 +22,7 @@ const OPTIONS: {
 
 export function OptimiseToggle({ value, onChange, disabled }: OptimiseToggleProps) {
   return (
-    <div className="flex gap-1.5" role="radiogroup" aria-label="Optimise route for">
+    <div className="flex flex-wrap gap-1.5" role="radiogroup" aria-label="Optimise route for">
       {OPTIONS.map(opt => {
         const Icon    = opt.icon
         const active  = value === opt.value

@@ -9,7 +9,7 @@ export function Card({ children, className }: CardProps) {
   return (
     <div
       className={cn(
-        'surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle]',
+        'bg-white rounded-[--radius-lg] border border-[--color-border-subtle]',
         className
       )}
     >

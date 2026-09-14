@@ -2,7 +2,7 @@
 import type { Metadata } from 'next'
 import { MOCK_TRIPS } from '@/lib/mock-data'
 import { TripStatusPill } from '@/components/ui'
-import { Topbar, PageContent } from '@/components/layout'
+import { PageContent, PageHeading } from '@/components/layout'
 
 export const metadata: Metadata = { title: 'Trips - RouteDesk' }
 
@@ -11,14 +11,14 @@ export default function TripsPage() {
 
   return (
     <>
-      <Topbar
-        title="All trips"
-        subtitle={`${trips.length} trip${trips.length !== 1 ? 's' : ''} total`}
-        action={{ label: 'New trip', href: '/trips/new' }}
-      />
-
       <PageContent>
-        <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] divide-y divide-[--color-border-subtle]">
+        <PageHeading
+          className="mb-6"
+          title="All trips"
+          subtitle={`${trips.length} trip${trips.length !== 1 ? 's' : ''} total`}
+        />
+
+        <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] divide-y divide-[--color-border-subtle]">
           {trips.length === 0 ? (
             <p className="px-5 py-12 text-[13px] text-[--color-text-tertiary] text-center">
               No trips yet
@@ -49,7 +49,7 @@ export default function TripsPage() {
                     </p>
 
                     {/* Progress bar */}
-                    <div className="mt-2 h-[3px] rounded-full bg-[--color-surface-3] w-[180px]">
+                    <div className="mt-2 h-[3px] rounded-full bg-[--color-surface-3] w-full max-w-[180px]">
                       <div
                         className="h-full rounded-full bg-[--color-success] transition-all"
                         style={{ width: `${progress}%` }}

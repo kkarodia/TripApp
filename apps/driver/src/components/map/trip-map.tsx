@@ -165,12 +165,12 @@ export function TripMap({ trip }: TripMapProps) {
 
       {mapState === 'no-key' && (
         <div className="absolute inset-0 flex flex-col items-center justify-center px-8 text-center">
-          <div className="w-14 h-14 rounded-full bg-[--color-surface-2] flex items-center justify-center mb-4 text-2xl">🗺</div>
+          <div className="w-14 h-14 rounded-full bg-[--color-sky-100] border border-[--color-accent-border] flex items-center justify-center mb-4 text-2xl">🗺</div>
           <p className="text-[14px] font-semibold text-[--color-text-primary] mb-1">Map not configured</p>
           <p className="text-[12px] text-[--color-text-tertiary] leading-relaxed">
             Add <code className="bg-[--color-surface-2] px-1 rounded">NEXT_PUBLIC_GOOGLE_MAPS_KEY</code> to .env.local
           </p>
-          <div className="mt-6 w-full max-w-[280px] surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden text-left">
+          <div className="mt-6 w-full max-w-[280px] bg-white rounded-[--radius-lg] border border-[--color-border-subtle] overflow-hidden text-left">
             {trip.stops.map((stop, i) => {
               const isArrived = stop.status === 'arrived'
               const isNext    = stop.status === 'pending' && trip.stops.slice(0, i).every(s => s.status === 'arrived')

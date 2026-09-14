@@ -27,7 +27,9 @@ export default async function RouteSheetPage({ params }: RouteSheetPageProps) {
       <RouteSheetToolbar trip={trip} />
 
       {/* A4 document — centred on the page */}
-      <div className="flex justify-center py-8 px-4 print:p-0 print:bg-white">
+      {/* The sheet is a fixed A4 width; on narrow screens it scrolls sideways
+          rather than reflowing, so what you see is what prints. */}
+      <div className="flex overflow-x-auto py-4 px-4 sm:py-8 print:overflow-visible print:p-0 print:bg-white">
         <RouteSheetDocument trip={trip} />
       </div>
     </div>

@@ -1,6 +1,6 @@
 ﻿import { IconTruckDelivery, IconCalendarClock, IconMapPinCheck, IconAlertTriangle } from '@tabler/icons-react'
 // icons used as MetricCard `icon` props below
-import { Topbar, PageContent } from '@/components/layout'
+import { PageContent, PageHeading } from '@/components/layout'
 import { MetricCard } from '@/components/ui'
 import { ActiveTripsCard, ScheduledTripsCard, AlertsCard } from '@/components/dashboard'
 import {
@@ -48,15 +48,15 @@ export default function DashboardPage() {
 
   return (
     <>
-      <Topbar
-        title={`${greeting}, Sarah`}
-        subtitle={`${today} - ${activeTrips.length} on the road, ${scheduledTrips.length} scheduled`}
-        action={{ label: 'New trip', href: '/trips/new' }}
-      />
-
       <PageContent>
+        <PageHeading
+          className="mb-6"
+          title={`${greeting}, Sarah`}
+          subtitle={`${today} - ${activeTrips.length} on the road, ${scheduledTrips.length} scheduled`}
+        />
+
         {/* ── Metric cards ─────────────────────────────────────────────── */}
-        <div className="grid grid-cols-4 gap-3 mb-5">
+        <div className="grid grid-cols-2 gap-3 mb-5 lg:grid-cols-4">
           <MetricCard
             label="Active trips"
             value={activeTrips.length}
@@ -88,7 +88,7 @@ export default function DashboardPage() {
         </div>
 
         {/* ── Two-column card row ───────────────────────────────────────── */}
-        <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-1 gap-4 mb-4 lg:grid-cols-2">
           <ActiveTripsCard trips={activeTrips} />
           <ScheduledTripsCard trips={scheduledTrips} />
         </div>

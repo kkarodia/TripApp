@@ -22,19 +22,22 @@ export function RouteMapClient({ trips }: RouteMapClientProps) {
     ? trips.filter(t => t.id === selectedTripId)
     : trips
 
+  // Below lg the trip list stacks above the map, and the page scrolls - so the
+  // map gets a height of its own instead of borrowing the viewport's.
   return (
-    <div className="flex flex-1 min-h-0">
+    <div className="flex flex-col lg:flex-row lg:flex-1 lg:min-h-0">
       <TripFilterSidebar
         trips={trips}
         selectedTripId={selectedTripId}
         onSelect={setSelectedTripId}
       />
-      <MapContainer
-        trips={displayedTrips}
-        selectedTripId={selectedTripId}
-        onTripSelect={id => setSelectedTripId(prev => prev === id ? null : id)}
-        className="flex-1"
-      />
+      <div className="h-[60vh] min-h-[360px] lg:h-auto lg:min-h-0 lg:flex-1">
+        <MapContainer
+          trips={displayedTrips}
+          selectedTripId={selectedTripId}
+          onTripSelect={id => setSelectedTripId(prev => prev === id ? null : id)}
+        />
+      </div>
     </div>
   )
 }

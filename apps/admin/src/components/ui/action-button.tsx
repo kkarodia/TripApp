@@ -10,6 +10,8 @@ interface ActionButtonProps {
    * instead of punching a white gap into the sidebar.
    */
   onNavy?: boolean
+  /** Below `sm`, shrink to the plus icon; the label stays for screen readers. */
+  compact?: boolean
   className?: string
 }
 
@@ -17,12 +19,13 @@ interface ActionButtonProps {
  * The app's primary "create" affordance - pale blue on both navy and white
  * chrome. Shared by the sidebar and the topbar so the two stay identical.
  */
-export function ActionButton({ label, href, onNavy, className }: ActionButtonProps) {
+export function ActionButton({ label, href, onNavy, compact, className }: ActionButtonProps) {
   return (
     <Link
       href={href}
       className={cn(
-        'group inline-flex items-center justify-center gap-2 rounded-[--radius-md] px-3.5 py-2.5',
+        'group inline-flex items-center justify-center gap-2 rounded-[--radius-md] py-2.5',
+        compact ? 'px-2.5 sm:px-3.5' : 'px-3.5',
         'bg-[--color-sky-300] text-[13px] font-semibold text-[--color-navy-900]',
         'transition-[background-color,box-shadow] duration-200 ease-out',
         'hover:bg-[--color-sky-200] hover:shadow-[0_0_20px_rgba(126,169,220,0.35)]',
@@ -40,7 +43,7 @@ export function ActionButton({ label, href, onNavy, className }: ActionButtonPro
         className="flex-shrink-0 transition-transform duration-200 ease-out group-hover:rotate-90"
         aria-hidden
       />
-      {label}
+      <span className={compact ? 'sr-only sm:not-sr-only' : undefined}>{label}</span>
     </Link>
   )
 }

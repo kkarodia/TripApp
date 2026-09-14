@@ -68,7 +68,7 @@ export function LoginForm() {
         </div>
 
         {/* ── Card ──────────────────────────────────────────────────── */}
-        <div className="surface-pattern-panel rounded-[--radius-lg] border border-[--color-border-subtle] p-7">
+        <div className="bg-white rounded-[--radius-lg] border border-[--color-border-subtle] p-7">
           <h1 className="text-[18px] font-semibold text-[--color-text-primary] mb-1">
             Sign in
           </h1>

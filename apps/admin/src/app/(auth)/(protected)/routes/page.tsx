@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from 'next'
-import { Topbar } from '@/components/layout'
+import { PageHeading } from '@/components/layout'
 import { RouteMapClient } from '@/components/map'
 import { MOCK_TRIPS } from '@/lib/mock-data'
 
@@ -22,11 +22,12 @@ export default function RoutesPage() {
 
   return (
     <>
-      <Topbar
-        title="Route map"
-        subtitle={`${activeTrips.length} active trip${activeTrips.length !== 1 ? 's' : ''} - live view`}
-        action={{ label: 'New trip', href: '/trips/new' }}
-      />
+      <div className="px-4 pt-4 pb-3 sm:px-6 sm:pt-6 sm:pb-4 flex-shrink-0">
+        <PageHeading
+          title="Route map"
+          subtitle={`${activeTrips.length} active trip${activeTrips.length !== 1 ? 's' : ''} - live view`}
+        />
+      </div>
 
       {/*
         RouteMapClient fills remaining height.
@@ -34,7 +35,7 @@ export default function RoutesPage() {
         the map div won't respect the parent's height constraint and
         will overflow the viewport.
       */}
-      <div className="flex flex-1 min-h-0 overflow-hidden">
+      <div className="flex flex-col lg:flex-1 lg:min-h-0 lg:overflow-hidden">
         <RouteMapClient trips={activeTrips} />
       </div>
     </>

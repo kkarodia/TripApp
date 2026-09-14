@@ -25,16 +25,14 @@ const barColor: Record<string, string> = {
 export function TripCard({ trip }: TripCardProps) {
   const { arrived, total, pct } = getProgress(trip)
 
-  // The panel wash paints above background-color, so a hover tint on this same
-  // element would be masked; the card reacts with its border and a soft lift.
   return (
     <Link
       href={`/trips/${trip.id}`}
       className={cn(
-        'block surface-pattern-panel rounded-[--radius-lg] px-4 py-3.5',
+        'block bg-white rounded-[--radius-lg] px-4 py-3.5',
         'border border-[--color-border-subtle]',
-        'transition-[border-color,box-shadow] duration-200 ease-out',
-        'hover:border-[--color-accent-border] hover:shadow-[0_2px_10px_rgba(90,143,208,0.18)]'
+        'transition-colors duration-200 ease-out',
+        'hover:bg-[--color-sky-50] hover:border-[--color-accent-border]'
       )}
     >
       {/* Row 1: reference + status */}

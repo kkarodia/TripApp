@@ -19,8 +19,8 @@ export function NavigateClient({ activeTrip }: NavigateClientProps) {
           className="px-4 pb-24 flex flex-col items-center justify-center"
           style={{ paddingTop: 'calc(var(--header-height) + 40px)', minHeight: '100dvh' }}
         >
-          <div className="w-14 h-14 rounded-full bg-[--color-surface-2] flex items-center justify-center mb-4">
-            <IconTruckDelivery size={26} stroke={1.5} className="text-[--color-text-tertiary]" aria-hidden />
+          <div className="w-14 h-14 rounded-full bg-[--color-sky-100] border border-[--color-accent-border] flex items-center justify-center mb-4">
+            <IconTruckDelivery size={26} stroke={1.5} className="text-[--color-accent]" aria-hidden />
           </div>
           <p className="text-[14px] font-semibold text-[--color-text-primary] mb-1">No active trip</p>
           <p className="text-[12px] text-[--color-text-tertiary] text-center mb-5">
@@ -66,11 +66,11 @@ export function NavigateClient({ activeTrip }: NavigateClientProps) {
 
         {/* Floating current-stop card */}
         {currentStop ? (
-          <div className="absolute left-3 right-3 bottom-3 surface-pattern-panel rounded-[--radius-xl] border border-[--color-border-subtle] p-4"
+          <div className="absolute left-3 right-3 bottom-3 bg-white rounded-[--radius-xl] border border-[--color-border-subtle] p-4"
             style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.10)' }}
           >
             <div className="flex items-start justify-between mb-1">
-              <p className="text-[10px] font-medium text-[--color-text-tertiary] uppercase tracking-[0.06em]">
+              <p className="text-[10px] font-medium text-[--color-accent] uppercase tracking-[0.06em]">
                 Next stop · {arrived + 1} of {total}
               </p>
               <span className="text-[10px] font-medium text-[--color-brand] bg-[--color-accent-subtle] px-2 py-0.5 rounded-full">
@@ -106,7 +106,7 @@ export function NavigateClient({ activeTrip }: NavigateClientProps) {
             </div>
           </div>
         ) : (
-          <div className="absolute left-3 right-3 bottom-3 surface-pattern-panel rounded-[--radius-xl] border border-[--color-success-border] p-4 flex items-center gap-3"
+          <div className="absolute left-3 right-3 bottom-3 bg-white rounded-[--radius-xl] border border-[--color-success-border] p-4 flex items-center gap-3"
             style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}
           >
             <div className="w-10 h-10 rounded-full bg-[--color-success-bg] flex items-center justify-center flex-shrink-0">

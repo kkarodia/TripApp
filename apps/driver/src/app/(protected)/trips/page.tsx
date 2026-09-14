@@ -26,7 +26,7 @@ export default function TripsPage() {
       >
         {active.length > 0 && (
           <section className="mb-5">
-            <p className="text-[10px] font-medium text-[--color-text-tertiary] uppercase tracking-[0.06em] mb-2 px-0.5">
+            <p className="text-[10px] font-medium text-[--color-accent] uppercase tracking-[0.06em] mb-2 px-0.5">
               Active
             </p>
             <div className="flex flex-col gap-2">
@@ -37,7 +37,7 @@ export default function TripsPage() {
 
         {done.length > 0 && (
           <section className="mb-5">
-            <p className="text-[10px] font-medium text-[--color-text-tertiary] uppercase tracking-[0.06em] mb-2 px-0.5">
+            <p className="text-[10px] font-medium text-[--color-accent] uppercase tracking-[0.06em] mb-2 px-0.5">
               Completed
             </p>
             <div className="flex flex-col gap-2">

@@ -135,7 +135,7 @@ export function StopList({ stops, tripStatus, onDeleteStop }: StopListProps) {
                 id={`stop-detail-${stop.id}`}
                 className="px-5 pb-4 pt-1 border-t border-[--color-border-subtle] bg-[--color-surface-1]"
               >
-                <div className="grid grid-cols-3 gap-4 mb-4">
+                <div className="grid grid-cols-2 gap-4 mb-4 sm:grid-cols-3">
                   {[
                     { label: 'Road type',   value: stop.roadType ?? '-' },
                     { label: 'Distance',    value: stop.distanceKm !== null ? `${stop.distanceKm} km` : '-' },

@@ -27,5 +27,9 @@ export default async function ProtectedLayout({
     redirect('/login')
   }
 
-  return <Shell>{children}</Shell>
+  return (
+    <Shell user={{ name: session.user.name ?? 'Manager', role: session.user.role }}>
+      {children}
+    </Shell>
+  )
 }

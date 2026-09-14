@@ -98,7 +98,7 @@ export function TripDetailClient({ trip: initialTrip }: TripDetailClientProps) {
     <TripMetaBar trip={trip} />
 
     <PageContent>
-    <div className="flex gap-5">
+    <div className="flex flex-col gap-5 lg:flex-row">
 
       {/* ── Left: stop list ──────────────────────────────────── */}
       <div className="flex-1 min-w-0">
@@ -166,7 +166,7 @@ export function TripDetailClient({ trip: initialTrip }: TripDetailClientProps) {
       </div>
 
       {/* ── Right sidebar ────────────────────────────────────── */}
-      <div className="w-[280px] flex-shrink-0 space-y-4">
+      <div className="w-full space-y-4 lg:w-[280px] lg:flex-shrink-0">
         {/* Before departure the useful control is crewing the trip; once it is
             rolling, progress is what matters and the driver is settled. */}
         {trip.status === 'scheduled'
